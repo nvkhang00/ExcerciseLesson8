@@ -26,6 +26,10 @@
         // }
         #endregion
 
+        #region Best time to Buy and Sell Stock
+        // List<int> prices = [7, 1, 5, 3, 6 ,4];
+        // Console.WriteLine($"Max profit: {Method.MaxProfit(prices)}");
+        #endregion
     }
     private static T Input<T>(string mess)
     {

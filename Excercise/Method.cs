@@ -17,14 +17,31 @@ class Method
     {
         if (arr == null || arr.Count == 0) return null;
         var dicNum = new Dictionary<int, int>();
-        for(int i = 0; i < arr.Count; i++) {
+        for (int i = 0; i < arr.Count; i++)
+        {
             int completed = target - arr[i];
-            if(dicNum.TryGetValue(completed, out var index)) {
+            if (dicNum.TryGetValue(completed, out var index))
+            {
                 return (index, i);
             }
-            if(!dicNum.ContainsKey(arr[i])) dicNum[arr[i]] = i;
+            if (!dicNum.ContainsKey(arr[i])) dicNum[arr[i]] = i;
         }
         return null;
+    }
+
+    public static int MaxProfit(List<int> prices)
+    {
+        if (prices == null || prices.Count == 0) return 0;
+        int minPrice = int.MaxValue;
+        int maxProfit = 0;
+        foreach (int price in prices) {
+            if(price < minPrice) minPrice = price;
+            else {
+                int profit = price - minPrice;
+                maxProfit = profit > maxProfit ? profit : maxProfit;
+            }
+        }
+        return maxProfit;
     }
 
 
