@@ -45,6 +45,30 @@ class Method
     }
 
 
+    // Only count length array with unique number
+    // public static int CountUnique(List<int> list) {
+    //     if (list == null || list.Count == 0) return 0;
+    //     list.Sort((a,b) => a-b);
+    //     int uniqueIndex = 0;
+    //     for(int i = 1; i < list.Count; i++) {
+    //         if(list[i] != list[uniqueIndex]) {
+    //             uniqueIndex++;
+    //             list[uniqueIndex] = list[i];
+    //         }
+    //     }
+    //     return uniqueIndex + 1;
+    // }
+
+    public static int[] UniqueArray(List<int> list) {
+        if (list == null || list.Count == 0) return [];
+        list.Sort((a,b) => a - b);
+        List<int> uniqueList = [list[0]];
+        for(int i = 1; i < list.Count; i++) {
+            if(list[i] != list[i-1]) uniqueList.Add(list[i]);
+        }
+        return [..uniqueList];
+    }
+
     public static T ConvertTo<T>(object? input)
     {
         try
