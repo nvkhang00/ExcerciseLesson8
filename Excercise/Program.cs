@@ -13,17 +13,21 @@
         #endregion
 
         #region Tìm hai số trong tổng danh sách số nguyên sao cho tổng của chúng bằng mộ t giá trị target cho trước\
-        // List<int> lst_number = [2, 7, 11, 15];
-        // int target = Input<int>("Enter target: ");
-        // (int, int)? result = Method.TwoSumEqualTarget(lst_number, target);
-        // if (result == null)
-        // {
-        //     Console.WriteLine("No value satisfies the condition");
-        // }
-        // else
-        // {
-        //     Console.WriteLine($"Sum of two number in array equals target: {target} is indicated: [{result.Value.Item1}, {result.Value.Item2}]");
-        // }
+        List<int> lst_number = [2, 7, 11, 15];
+        int target = Input<int>("Enter target: ");
+        (int index1, int index2)? result = Method.TwoSumEqualTarget(lst_number, target);
+        if (!result.HasValue)
+        {
+            Console.WriteLine("No value satisfies the condition");
+        }
+        else
+        {
+            Console.WriteLine($"Sum of two number in array equals target: {target} is indicates: [{result.Value.index1}, {result.Value.index2}]");
+        }
+        #endregion
+
+        #region Remove duplicates from sorted Array(Easy)
+        
         #endregion
 
         #region Best time to Buy and Sell Stock
