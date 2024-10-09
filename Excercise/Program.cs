@@ -3,13 +3,56 @@
     private static void Main(string[] args)
     {
         #region Tính tổng các số trong mảng
-        int result = Method.SumArr([20, 81, 97, 63, 72, 11, 20, 15, 33, 15, 41, 20]);
-        if(result == 0) {
-            Console.WriteLine("Input array is null or empty. Please input array has at least 1 element.");
-        }
-        else {
-            Console.Write($"Sum of array [20, 81, 97, 63, 72, 11, 20, 15, 33, 15, 41, 20] is: {result}");
-        }
+        // int result = Method.SumArr([20, 81, 97, 63, 72, 11, 20, 15, 33, 15, 41, 20]);
+        // if(result == 0) {
+        //     Console.WriteLine("Input array is null or empty. Please input array has at least 1 element.");
+        // }
+        // else {
+        //     Console.Write($"Sum of array [20, 81, 97, 63, 72, 11, 20, 15, 33, 15, 41, 20] is: {result}");
+        // }
         #endregion
+
+        #region Tìm hai số trong tổng danh sách số nguyên sao cho tổng của chúng bằng mộ t giá trị target cho trước\
+        // List<int> lst_number = [2, 7, 11, 15];
+        // int target = Input<int>("Enter target: ");
+        // (int, int)? result = Method.TwoSumEqualTarget(lst_number, target);
+        // if (result == null)
+        // {
+        //     Console.WriteLine("No value satisfies the condition");
+        // }
+        // else
+        // {
+        //     Console.WriteLine($"Sum of two number in array equals target: {target} is indicated: [{result.Value.Item1}, {result.Value.Item2}]");
+        // }
+        #endregion
+
+    }
+    private static T Input<T>(string mess)
+    {
+        while (true)
+        {
+            try
+            {
+                Console.Write(mess);
+                string? input = Console.ReadLine();
+                return Method.ConvertTo<T>(input);
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (InvalidCastException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
