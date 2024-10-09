@@ -69,6 +69,17 @@ class Method
         return [..uniqueList];
     }
 
+    public static IList<int>? FindMostFrequentElements(List<int> list, int k) {
+        if (list == null || list.Count==0) return null;
+        var dicNum = new Dictionary<int, int>();
+        foreach (int num in list) {
+            if(dicNum.ContainsKey(num)) dicNum[num]++;
+            else dicNum[num] = 1;
+        }
+        if(k > dicNum.Count || k == 0) return [];
+        return dicNum.OrderByDescending(pair => pair.Value).Take(k).Select(pair => pair.Key).ToList();
+    }
+
     public static T ConvertTo<T>(object? input)
     {
         try
